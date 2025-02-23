@@ -276,6 +276,29 @@ def param_ids(val):
                 ],
             ),
         ),
+        (
+            "twobacktracks",
+            Lookup(
+                lookup_id="GPOS_twobacktracks",
+                depends_on=["GPOS_sublookup"],
+                statements=[
+                    # pos [two four six] [one three five] [A B C D]' lookup GPOS_sublookup;
+                    ast.ChainContextPosStatement(
+                        glyphs=[ast.GlyphClass(["A", "B", "C", "D"])],
+                        lookups=[[ast.LookupBlock(name="GPOS_sublookup")]],
+                        prefix=[ast.GlyphClass(["two", "four", "six"]), ast.GlyphClass(["one", "three", "five"])],
+                        suffix=[],
+                    ),
+                    # pos [x y z] [a c e] [seven eight nine]' lookup GPOS_sublookup;
+                    ast.ChainContextPosStatement(
+                        glyphs=[ast.GlyphClass(["seven", "eight", "nine"])],
+                        lookups=[[ast.LookupBlock(name="GPOS_sublookup")]],
+                        prefix=[ast.GlyphClass(["x", "y", "z"]), ast.GlyphClass(["a", "c", "e"])],
+                        suffix=[],
+                    ),
+                ],
+            ),
+        ),
     ],
     ids=param_ids,
 )

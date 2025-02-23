@@ -525,6 +525,9 @@ class LookupAndFeatureParser:
             line = lines[0]
             assert line[0].lower() == "coverage", line[0]
             lookups = self._parse_position_lookup_entries(rule_kwargs["glyphs"], line[1:], lookup)
+            # OpenType tables and Monotype syntax have backtrack tables in reverse order.
+            # See the twobacktracks.txt test case.
+            rule_kwargs["prefix"].reverse()
             return [ruleklass(lookups=lookups, **rule_kwargs)]
         raise ParseError("Expected one of glyph, class, or coverage, but didn't get any of them.")
 
