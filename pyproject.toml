@@ -9,7 +9,7 @@ description = "Improve your UFOs"
 name = "elerium"
 readme = "README.md"
 requires-python = ">=3.12"
-version = "0.1.0"
+version = "0.1.1"
 
 [build-system]
 build-backend = "flit_core.buildapi"
@@ -63,7 +63,6 @@ docstring-code-line-length = "dynamic"
 allow_dirty = false
 commit = true
 commit_args = ""
-current_version = "0.1.1"
 ignore_missing_files = false
 ignore_missing_version = false
 message = "Bump version: {current_version} → {new_version}"
@@ -79,6 +78,11 @@ sign_tags = false
 tag = true
 tag_message = "Bump version: {current_version} → {new_version}"
 tag_name = "v{new_version}"
+
+[[tool.bumpversion.files]]
+filename = "pyproject.toml"
+replace = "version = \"{new_version}\""
+search = "version = \"{current_version}\""
 
 [[tool.bumpversion.files]]
 filename = "uv.lock"
