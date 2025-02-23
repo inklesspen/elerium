@@ -1,3 +1,3 @@
 # SPDX-FileCopyrightText: 2025 Rose Davidson <rose@metaclassical.com>
 # SPDX-License-Identifier: MIT
-__version__ = "0.1.2"
+__version__ = "0.2.0"
