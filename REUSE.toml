@@ -1,0 +1,31 @@
+version = 1
+
+[[annotations]]
+SPDX-FileCopyrightText = "2015 Monotype Imaging Inc."
+SPDX-License-Identifier = "CC-BY-ND-4.0"
+path = "tests/data/mti/*.txt"
+
+[[annotations]]
+SPDX-FileCopyrightText = "Contributors to nototools <https://github.com/notofonts/nototools/>"
+SPDX-License-Identifier = "Apache-2.0"
+path = "tests/data/nototools/*.txt"
+
+[[annotations]]
+SPDX-FileCopyrightText = "2025 Rose Davidson <rose@metaclassical.com>>"
+SPDX-License-Identifier = "MIT"
+path = [
+  "tests/data/*.txt",
+  "tests/data/plist/*",
+]
+
+[[annotations]]
+SPDX-FileCopyrightText = "NONE"
+SPDX-License-Identifier = "CC0-1.0"
+path = [
+  ".gitignore",
+  "uv.lock",
+  "pyproject.toml",
+  "pytest.ini",
+  "tests/data/mti/README.md",
+  "tests/data/nototools/README.md",
+]

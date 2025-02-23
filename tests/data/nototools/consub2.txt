@@ -1,0 +1,11 @@
+
+lookup	testLookupCtx	context
+class definition begin
+a	1
+b	2
+c	3
+d	1
+class definition end
+class	1,2,3,1	1,testLookupSub
+lookup end
+

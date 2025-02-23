@@ -1,0 +1,3 @@
+lookup	testLookupCtx	context
+glyph	b,a	1,testLookupSub
+lookup end

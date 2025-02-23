@@ -1,0 +1,11 @@
+lookup	 slashpos 	single
+
+RightToLeft	no
+IgnoreBaseGlyphs	no
+IgnoreLigatures	no
+IgnoreMarks	no
+
+x placement	fraction	-10
+x advance	fraction	-10
+
+lookup end

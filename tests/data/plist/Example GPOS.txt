@@ -1,0 +1,24 @@
+FontDame GPOS table
+
+EM	1024
+
+script table begin
+latn	default		0
+script table end
+
+feature table begin
+0	ptst	slashpos
+feature table end
+
+
+lookup	 slashpos 	single
+
+RightToLeft	no
+IgnoreBaseGlyphs	no
+IgnoreLigatures	no
+IgnoreMarks	no
+
+x placement	fraction	-10
+x advance	fraction	-10
+
+lookup end

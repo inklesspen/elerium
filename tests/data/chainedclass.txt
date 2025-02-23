@@ -1,0 +1,32 @@
+
+lookup	contrived	chained
+
+backtrackclass definition begin
+z	1
+y	2
+class definition end
+
+class definition begin
+a	1
+b	2
+c	2
+d	2
+e	1
+f	2
+class definition end
+
+lookaheadclass definition begin
+one	1
+two	2
+three	1
+four	2
+five	1
+six	2
+class definition end
+
+% two vowels, preceded by a z and followed by an odd digit glyph; call somelookup on the second vowel
+class-chain	1	1,1	1	2,somelookup
+% consonant-vowel-consonant, preceded by two y's and followed by an even digit glyph; call somelookup on the first consonant and otherlookup on the second consonant
+class-chain	2,2	2,1,2	2	1,somelookup	3,otherlookup
+
+lookup end

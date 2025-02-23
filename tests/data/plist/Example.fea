@@ -1,0 +1,30 @@
+languagesystem latn dflt;
+@BASES = [zero one two three four five six seven eight nine slash fraction];
+@LIGATURES = [];
+@MARKS = [];
+@COMPONENTS = [];
+table GDEF {
+    GlyphClassDef @BASES, @LIGATURES, @MARKS, @COMPONENTS;
+} GDEF;
+
+lookup GSUB_slashTofraction {
+    sub slash by fraction;
+} GSUB_slashTofraction;
+
+lookup GSUB_slashcontext {
+    sub [zero one two three four five six seven eight nine] slash' lookup GSUB_slashTofraction [zero one two three four five six seven eight nine];
+} GSUB_slashcontext;
+
+lookup GPOS_slashpos {
+    pos fraction <-10 0 -10 0>;
+} GPOS_slashpos;
+
+feature stst {
+    script latn;
+    lookup GSUB_slashcontext;
+} stst;
+
+feature ptst {
+    script latn;
+    lookup GPOS_slashpos;
+} ptst;

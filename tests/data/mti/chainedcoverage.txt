@@ -1,0 +1,42 @@
+lookup	slashcontext 	chained
+
+RightToLeft	no
+IgnoreBaseGlyphs	no
+IgnoreLigatures	no
+IgnoreMarks	no
+
+backtrackcoverage definition begin
+zero
+one
+two
+three
+four
+five
+six
+seven
+eight
+nine
+coverage definition end
+
+inputcoverage definition begin
+slash
+coverage definition end
+
+lookaheadcoverage definition begin
+zero
+one
+two
+three
+four
+five
+six
+seven
+eight
+nine
+coverage definition end
+
+coverage	 1, slashTofraction
+
+lookup end
+
+
