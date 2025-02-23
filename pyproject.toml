@@ -1,4 +1,7 @@
 [project]
+authors = [
+  {name = "Rose Davidson", email = "rose@metaclassical.com"},
+]
 dependencies = [
   "fontTools>=4.56.0",
   "more-itertools>=10.6.0",
@@ -6,6 +9,8 @@ dependencies = [
   "typer>=0.15.1",
 ]
 description = "Improve your UFOs"
+license = "MIT"
+license-files = ["LICENSES/MIT.txt"]
 name = "elerium"
 readme = "README.md"
 requires-python = ">=3.12"
