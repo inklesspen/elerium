@@ -1,0 +1,67 @@
+lookup	ooochaining	chained
+
+RightToLeft	no
+IgnoreBaseGlyphs	no
+IgnoreLigatures	no
+IgnoreMarks	no
+
+backtrackcoverage definition begin
+one
+three
+five
+coverage definition end
+
+backtrackcoverage definition begin
+two
+four
+six
+coverage definition end
+
+inputcoverage definition begin
+A
+B
+C
+D
+coverage definition end
+
+inputcoverage definition begin
+Z
+Y
+X
+coverage definition end
+
+lookaheadcoverage definition begin
+two
+four
+six
+coverage definition end
+
+coverage	2,sublookup	1,otherlookup
+subtable end
+
+backtrackcoverage definition begin
+a
+c
+e
+coverage definition end
+
+inputcoverage definition begin
+seven
+eight
+nine
+coverage definition end
+
+inputcoverage definition begin
+one
+two
+three
+coverage definition end
+
+lookaheadcoverage definition begin
+x
+y
+z
+coverage definition end
+
+coverage	2,sublookup	1,thirdlookup
+lookup end

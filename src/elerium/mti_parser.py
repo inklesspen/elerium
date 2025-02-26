@@ -11,6 +11,7 @@ import logging
 import pathlib
 import re
 import typing
+import warnings
 from contextlib import contextmanager
 
 import fontTools.feaLib.ast as ast
@@ -33,6 +34,10 @@ class MtiParserError(Exception):
 
 
 class ParseError(MtiParserError):
+    pass
+
+
+class FeatureSyntaxWarning(UserWarning):
     pass
 
 
@@ -438,17 +443,25 @@ class LookupAndFeatureParser:
 
     def _parse_position_lookup_entries(self, glyphs: list[ast.Expression], position_lookups: list[str], current_lookup: Lookup):
         lookups: list[Optional[list[ast.LookupBlock]]] = [None] * len(glyphs)
+        indexes = []
         for ref in position_lookups:
             ref = strip_split_comma(ref)
             assert len(ref) == 2
             idx = int(ref[0]) - 1
+            indexes.append(idx)
             if lookups[idx] is None:
                 lookups[idx] = []
             depname = self._name_lookup(ref[1])
             if depname not in current_lookup.depends_on:
                 current_lookup.depends_on.append(depname)
             lookups[idx].append(ast.LookupBlock(name=depname))
-        return lookups
+        if indexes != sorted(indexes):
+            # Hat tip to simoncozens; Monotype syntax permits out-of-order lookups, but ADFKO does not
+            # https://github.com/adobe-type-tools/afdko/discussions/1709
+            expl = f"Lookup {current_lookup.lookup_id} has syntax that cannot be expressed in ADFKO: {' '.join(position_lookups)}. If the order of application matters here, you will need to restructure this rule."
+            warnings.warn(expl, FeatureSyntaxWarning, stacklevel=2)
+            return lookups, ast.Comment("# " + expl)
+        return lookups, None
 
     def _parse_chaining[RK: (ast.ChainContextSubstStatement, ast.ChainContextPosStatement)](
         self, ruleklass: type[RK], lookup: Lookup, is_chained: bool
@@ -465,7 +478,9 @@ class LookupAndFeatureParser:
                 rule_kwargs = {"glyphs": [], "prefix": [], "suffix": []}
                 for i, sequence_kind in enumerate(sequence_kinds, start=1):
                     rule_kwargs[sequence_kind] = [ast.GlyphName(g) for g in make_glyphs(strip_split_comma(line[i]))]
-                lookups = self._parse_position_lookup_entries(rule_kwargs["glyphs"], line[1 + glyph_set_count :], lookup)
+                lookups, comment = self._parse_position_lookup_entries(rule_kwargs["glyphs"], line[1 + glyph_set_count :], lookup)
+                if comment:
+                    rules.append(comment)
                 rules.append(ruleklass(lookups=lookups, **rule_kwargs))
             return rules
         if typ.endswith("class"):
@@ -492,7 +507,9 @@ class LookupAndFeatureParser:
                             rule_kwargs[sequence_kind].append(ast.GlyphName(glyph=class_glyphs[0]))
                         else:
                             rule_kwargs[sequence_kind].append(ast.GlyphClass(glyphs=class_glyphs))
-                lookups = self._parse_position_lookup_entries(rule_kwargs["glyphs"], line[1 + glyph_set_count :], lookup)
+                lookups, comment = self._parse_position_lookup_entries(rule_kwargs["glyphs"], line[1 + glyph_set_count :], lookup)
+                if comment:
+                    rules.append(comment)
                 rules.append(ruleklass(lookups=lookups, **rule_kwargs))
             return rules
         if typ.endswith("coverage"):
@@ -524,11 +541,15 @@ class LookupAndFeatureParser:
             assert len(lines) == 1
             line = lines[0]
             assert line[0].lower() == "coverage", line[0]
-            lookups = self._parse_position_lookup_entries(rule_kwargs["glyphs"], line[1:], lookup)
+            lookups, comment = self._parse_position_lookup_entries(rule_kwargs["glyphs"], line[1:], lookup)
             # OpenType tables and Monotype syntax have backtrack tables in reverse order.
             # See the twobacktracks.txt test case.
             rule_kwargs["prefix"].reverse()
-            return [ruleklass(lookups=lookups, **rule_kwargs)]
+            rules = []
+            if comment:
+                rules.append(comment)
+            rules.append(ruleklass(lookups=lookups, **rule_kwargs))
+            return rules
         raise ParseError("Expected one of glyph, class, or coverage, but didn't get any of them.")
 
 

@@ -5,7 +5,7 @@ import pathlib
 import fontTools.feaLib.ast as ast
 import pytest
 
-from elerium.mti_parser import GsubParser, Lookup, LookupFlag
+from elerium.mti_parser import FeatureSyntaxWarning, GsubParser, Lookup, LookupFlag
 
 DATA_BASE_PATH = pathlib.Path(__file__).parent / "data"
 
@@ -454,6 +454,42 @@ def test_gsub_fragment(mti_file: str, expected: Lookup):
     parser = GsubParser(data_loader(mti_file))
 
     parser.parse()
+    assert len(parser.lookups) == 1
+    actual = feaify(parser.lookups[0])
+    expected = feaify(expected)
+    assert actual == expected
+
+
+def test_out_of_order_context_lookups():
+    expected = Lookup(
+        lookup_id="GSUB_ooochaining",
+        depends_on=["GSUB_sublookup", "GSUB_otherlookup", "GSUB_thirdlookup"],
+        statements=[
+            ast.Comment(
+                "# Lookup GSUB_ooochaining has syntax that cannot be expressed in ADFKO: 2,sublookup 1,otherlookup. If the order of application matters here, you will need to restructure this rule.",
+            ),
+            ast.ChainContextSubstStatement(
+                glyphs=[ast.GlyphClass(["A", "B", "C", "D"]), ast.GlyphClass(["Z", "Y", "X"])],
+                lookups=[[ast.LookupBlock(name="GSUB_otherlookup")], [ast.LookupBlock(name="GSUB_sublookup")]],
+                prefix=[ast.GlyphClass(["two", "four", "six"]), ast.GlyphClass(["one", "three", "five"])],
+                suffix=[ast.GlyphClass(["two", "four", "six"])],
+            ),
+            ast.Comment(
+                "# Lookup GSUB_ooochaining has syntax that cannot be expressed in ADFKO: 2,sublookup 1,thirdlookup. If the order of application matters here, you will need to restructure this rule.",
+            ),
+            ast.ChainContextSubstStatement(
+                glyphs=[ast.GlyphClass(["seven", "eight", "nine"]), ast.GlyphClass(["one", "two", "three"])],
+                lookups=[[ast.LookupBlock(name="GSUB_thirdlookup")], [ast.LookupBlock(name="GSUB_sublookup")]],
+                prefix=[ast.GlyphClass(["a", "c", "e"])],
+                suffix=[ast.GlyphClass(["x", "y", "z"])],
+            ),
+        ],
+    )
+    parser = GsubParser(data_loader("ooo_chaining"))
+
+    with pytest.warns(FeatureSyntaxWarning):
+        parser.parse()
+
     assert len(parser.lookups) == 1
     actual = feaify(parser.lookups[0])
     expected = feaify(expected)
