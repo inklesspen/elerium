@@ -7,6 +7,8 @@ SPDX-License-Identifier: CC-BY-ND-4.0
 
 Elerium is a library for working with [UFOs (Unified Font Objects)](https://unifiedfontobject.org/).
 
+In the [X-COM video game series](https://en.wikipedia.org/wiki/XCOM) (MicroProse, Firaxis, _et al._), a substance known as [Elerium-115](https://www.ufopaedia.org/index.php/Elerium-115) is the power source for UFOs and other alien technology.
+
 ## MTI to FEA
 
 Certain OFL-licensed fonts (particularly those from the Noto and Croscore projects) have OpenType features specified using [Monotype's format](https://monotype.github.io/OpenType_Table_Source/otl_source.html). The open font community seems to be standardized around [AFDKO syntax](https://adobe-type-tools.github.io/afdko/OpenTypeFeatureFileSpecification.html).
