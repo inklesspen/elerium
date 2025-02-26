@@ -24,6 +24,7 @@ SPDX-License-Identifier = "CC0-1.0"
 path = [
   ".github/workflows/*",
   ".gitignore",
+  ".pre-commit-config.yaml",
   "uv.lock",
   "pyproject.toml",
   "pytest.ini",
