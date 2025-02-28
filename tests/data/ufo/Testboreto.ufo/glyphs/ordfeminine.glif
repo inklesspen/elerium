@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<glyph name="ordfeminine" format="2">
+  <advance width="400"/>
+  <unicode hex="00AA"/>
+  <outline>
+    <contour>
+      <point x="34" y="348" type="line"/>
+      <point x="88" y="348" type="line"/>
+      <point x="182" y="669" type="line"/>
+      <point x="185" y="669" type="line"/>
+      <point x="312" y="348" type="line"/>
+      <point x="366" y="348" type="line"/>
+      <point x="224" y="700" type="line"/>
+      <point x="176" y="700" type="line"/>
+    </contour>
+    <contour>
+      <point x="120" y="498" type="line"/>
+      <point x="268" y="498" type="line"/>
+      <point x="268" y="515" type="line"/>
+      <point x="120" y="515" type="line"/>
+    </contour>
+  </outline>
+  <lib>
+    <dict>
+      <key>public.verticalOrigin</key>
+      <integer>930</integer>
+    </dict>
+  </lib>
+</glyph>

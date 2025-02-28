@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<glyph name="Ydieresis" format="2">
+  <advance height="1160" width="617"/>
+  <unicode hex="0178"/>
+  <unicode hex="00FF"/>
+  <anchor x="309" y="0" name="bottom"/>
+  <anchor x="312" y="890" name="top"/>
+  <anchor x="20" y="700" name="topleft"/>
+  <outline>
+    <component base="Y"/>
+    <component base="dieresiscomb" xOffset="94"/>
+  </outline>
+  <lib>
+    <dict>
+      <key>public.verticalOrigin</key>
+      <integer>930</integer>
+    </dict>
+  </lib>
+</glyph>

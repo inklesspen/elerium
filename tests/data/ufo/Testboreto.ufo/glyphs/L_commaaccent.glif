@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<glyph name="Lcommaaccent" format="2">
+  <advance height="1160" width="461"/>
+  <unicode hex="013B"/>
+  <unicode hex="013C"/>
+  <anchor x="280" y="-256" name="bottom"/>
+  <anchor x="231" y="350" name="center"/>
+  <anchor x="166" y="700" name="top"/>
+  <anchor x="441" y="700" name="topright"/>
+  <outline>
+    <component base="L"/>
+    <component base="commaaccentcomb" xOffset="160"/>
+  </outline>
+  <lib>
+    <dict>
+      <key>public.verticalOrigin</key>
+      <integer>930</integer>
+    </dict>
+  </lib>
+</glyph>

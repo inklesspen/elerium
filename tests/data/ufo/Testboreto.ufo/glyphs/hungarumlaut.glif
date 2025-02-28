@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<glyph name="hungarumlaut" format="2">
+  <advance width="425"/>
+  <unicode hex="02DD"/>
+  <anchor x="149" y="690" name="_top"/>
+  <anchor x="194" y="889" name="top"/>
+  <outline>
+    <component base="hungarumlautcomb"/>
+  </outline>
+  <lib>
+    <dict>
+      <key>public.verticalOrigin</key>
+      <integer>930</integer>
+    </dict>
+  </lib>
+</glyph>

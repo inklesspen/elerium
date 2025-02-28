@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<glyph name="arrowNW" format="2">
+  <advance width="692"/>
+  <unicode hex="2196"/>
+  <outline>
+    <component base="arrowup" xScale="0.70711" xyScale="0.70711" yxScale="-0.70711" yScale="0.70711" xOffset="392" yOffset="-107"/>
+  </outline>
+  <lib>
+    <dict>
+      <key>public.verticalOrigin</key>
+      <integer>930</integer>
+    </dict>
+  </lib>
+</glyph>

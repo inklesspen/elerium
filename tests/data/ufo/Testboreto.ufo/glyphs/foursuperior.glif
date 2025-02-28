@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<glyph name="foursuperior" format="2">
+  <advance width="396"/>
+  <unicode hex="2074"/>
+  <outline>
+    <contour>
+      <point x="40" y="477" type="line"/>
+      <point x="356" y="477" type="line"/>
+      <point x="356" y="497" type="line"/>
+      <point x="64" y="497" type="line"/>
+      <point x="226" y="780" type="line"/>
+      <point x="164" y="780" type="line"/>
+      <point x="40" y="493" type="line"/>
+    </contour>
+    <contour>
+      <point x="231" y="362" type="line"/>
+      <point x="281" y="362" type="line"/>
+      <point x="281" y="642" type="line"/>
+      <point x="231" y="642" type="line"/>
+    </contour>
+  </outline>
+  <lib>
+    <dict>
+      <key>public.verticalOrigin</key>
+      <integer>930</integer>
+    </dict>
+  </lib>
+</glyph>

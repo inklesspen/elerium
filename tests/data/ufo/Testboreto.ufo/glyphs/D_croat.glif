@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<glyph name="Dcroat" format="2">
+  <advance height="1160" width="814"/>
+  <unicode hex="0110"/>
+  <unicode hex="0111"/>
+  <anchor x="407" y="0" name="bottom"/>
+  <anchor x="407" y="350" name="center"/>
+  <anchor x="366" y="700" name="top"/>
+  <outline>
+    <component base="Eth"/>
+  </outline>
+  <lib>
+    <dict>
+      <key>public.verticalOrigin</key>
+      <integer>930</integer>
+    </dict>
+  </lib>
+</glyph>

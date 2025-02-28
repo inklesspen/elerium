@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<glyph name="Tcedilla" format="2">
+  <advance height="1160" width="648"/>
+  <unicode hex="0162"/>
+  <unicode hex="0163"/>
+  <anchor x="324" y="-220" name="bottom"/>
+  <anchor x="324" y="350" name="center"/>
+  <anchor x="324" y="700" name="top"/>
+  <outline>
+    <component base="T"/>
+    <component base="cedillacomb" xOffset="188"/>
+  </outline>
+  <lib>
+    <dict>
+      <key>public.verticalOrigin</key>
+      <integer>930</integer>
+    </dict>
+  </lib>
+</glyph>

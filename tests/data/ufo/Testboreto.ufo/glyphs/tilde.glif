@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<glyph name="tilde" format="2">
+  <advance width="404"/>
+  <unicode hex="02DC"/>
+  <anchor x="203" y="700" name="_top"/>
+  <anchor x="202" y="900" name="top"/>
+  <outline>
+    <component base="tildecomb"/>
+  </outline>
+  <lib>
+    <dict>
+      <key>public.verticalOrigin</key>
+      <integer>930</integer>
+    </dict>
+  </lib>
+</glyph>

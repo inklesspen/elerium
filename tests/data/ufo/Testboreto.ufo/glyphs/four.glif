@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<glyph name="four" format="2">
+  <advance width="568"/>
+  <unicode hex="0034"/>
+  <outline>
+    <contour>
+      <point x="34" y="196" type="line"/>
+      <point x="534" y="196" type="line"/>
+      <point x="534" y="220" type="line"/>
+      <point x="64" y="220" type="line"/>
+      <point x="376" y="700" type="line"/>
+      <point x="300" y="700" type="line"/>
+      <point x="34" y="216" type="line"/>
+    </contour>
+    <contour>
+      <point x="346" y="0" type="line"/>
+      <point x="412" y="0" type="line"/>
+      <point x="412" y="430" type="line"/>
+      <point x="346" y="430" type="line"/>
+    </contour>
+  </outline>
+  <lib>
+    <dict>
+      <key>public.verticalOrigin</key>
+      <integer>930</integer>
+    </dict>
+  </lib>
+</glyph>

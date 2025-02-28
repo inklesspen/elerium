@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<glyph name="Eth" format="2">
+  <advance width="814"/>
+  <unicode hex="00D0"/>
+  <unicode hex="00F0"/>
+  <anchor x="407" y="0" name="bottom"/>
+  <anchor x="407" y="350" name="center"/>
+  <anchor x="366" y="700" name="top"/>
+  <outline>
+    <contour>
+      <point x="38" y="352" type="line"/>
+      <point x="372" y="352" type="line"/>
+      <point x="372" y="376" type="line"/>
+      <point x="38" y="376" type="line"/>
+    </contour>
+    <component base="D"/>
+  </outline>
+  <lib>
+    <dict>
+      <key>com.schriftgestaltung.Glyphs.shapeOrder</key>
+      <string>CP</string>
+      <key>public.verticalOrigin</key>
+      <integer>930</integer>
+    </dict>
+  </lib>
+</glyph>

@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<glyph name="Igrave" format="2">
+  <advance height="1160" width="328"/>
+  <unicode hex="00CC"/>
+  <unicode hex="00EC"/>
+  <anchor x="164" y="0" name="bottom"/>
+  <anchor x="198" y="0" name="ogonek"/>
+  <anchor x="131" y="887" name="top"/>
+  <anchor x="20" y="700" name="topleft"/>
+  <outline>
+    <component base="I"/>
+    <component base="gravecomb" xOffset="16"/>
+  </outline>
+  <lib>
+    <dict>
+      <key>public.verticalOrigin</key>
+      <integer>930</integer>
+    </dict>
+  </lib>
+</glyph>

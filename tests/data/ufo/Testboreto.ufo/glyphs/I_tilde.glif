@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<glyph name="Itilde" format="2">
+  <advance height="1160" width="328"/>
+  <unicode hex="0128"/>
+  <unicode hex="0129"/>
+  <anchor x="164" y="0" name="bottom"/>
+  <anchor x="198" y="0" name="ogonek"/>
+  <anchor x="163" y="900" name="top"/>
+  <anchor x="20" y="700" name="topleft"/>
+  <outline>
+    <component base="I"/>
+    <component base="tildecomb" xOffset="-39"/>
+  </outline>
+  <lib>
+    <dict>
+      <key>public.verticalOrigin</key>
+      <integer>930</integer>
+    </dict>
+  </lib>
+</glyph>

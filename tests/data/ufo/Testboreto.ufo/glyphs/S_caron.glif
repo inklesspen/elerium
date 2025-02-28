@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<glyph name="Scaron" format="2">
+  <advance height="1160" width="543"/>
+  <unicode hex="0160"/>
+  <unicode hex="0161"/>
+  <anchor x="272" y="0" name="bottom"/>
+  <anchor x="281" y="918" name="top"/>
+  <outline>
+    <component base="S"/>
+    <component base="caroncomb" xOffset="77"/>
+  </outline>
+  <lib>
+    <dict>
+      <key>public.verticalOrigin</key>
+      <integer>930</integer>
+    </dict>
+  </lib>
+</glyph>

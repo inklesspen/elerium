@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<glyph name="IJ_acute" format="2">
+  <advance height="1160" width="656"/>
+  <anchor x="492" y="0" name="bottom"/>
+  <anchor x="198" y="0" name="ogonek"/>
+  <anchor x="525" y="897" name="top"/>
+  <anchor x="20" y="700" name="topleft"/>
+  <outline>
+    <component base="Iacute"/>
+    <component base="J" xOffset="328"/>
+    <component base="acutecomb" xOffset="401"/>
+  </outline>
+  <lib>
+    <dict>
+      <key>public.verticalOrigin</key>
+      <integer>930</integer>
+    </dict>
+  </lib>
+</glyph>

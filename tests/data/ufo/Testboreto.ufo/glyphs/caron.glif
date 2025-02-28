@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<glyph name="caron" format="2">
+  <advance width="408"/>
+  <unicode hex="02C7"/>
+  <anchor x="204" y="700" name="_top"/>
+  <anchor x="204" y="918" name="top"/>
+  <outline>
+    <component base="caroncomb"/>
+  </outline>
+  <lib>
+    <dict>
+      <key>public.verticalOrigin</key>
+      <integer>930</integer>
+    </dict>
+  </lib>
+</glyph>

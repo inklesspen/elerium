@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<glyph name="Edieresis" format="2">
+  <advance height="1160" width="518"/>
+  <unicode hex="00CB"/>
+  <unicode hex="00EB"/>
+  <anchor x="259" y="0" name="bottom"/>
+  <anchor x="390" y="0" name="ogonek"/>
+  <anchor x="279" y="890" name="top"/>
+  <anchor x="20" y="700" name="topleft"/>
+  <outline>
+    <component base="E"/>
+    <component base="dieresiscomb" xOffset="61"/>
+  </outline>
+  <lib>
+    <dict>
+      <key>public.verticalOrigin</key>
+      <integer>930</integer>
+    </dict>
+  </lib>
+</glyph>

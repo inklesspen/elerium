@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<glyph name="Eng" format="2">
+  <advance width="822"/>
+  <unicode hex="014A"/>
+  <unicode hex="014B"/>
+  <anchor x="411" y="0" name="bottom"/>
+  <anchor x="411" y="700" name="top"/>
+  <outline>
+    <contour>
+      <point x="616" y="62" type="line"/>
+      <point x="616" y="-106"/>
+      <point x="595" y="-189"/>
+      <point x="538" y="-221" type="curve"/>
+      <point x="540" y="-227" type="line"/>
+      <point x="644" y="-195"/>
+      <point x="679" y="-100"/>
+      <point x="685" y="68" type="curve"/>
+    </contour>
+    <contour>
+      <point x="115" y="0" type="line"/>
+      <point x="183" y="0" type="line"/>
+      <point x="161" y="594" type="line"/>
+      <point x="167" y="594" type="line"/>
+      <point x="644" y="17" type="line"/>
+      <point x="685" y="68" type="line"/>
+      <point x="707" y="700" type="line"/>
+      <point x="639" y="700" type="line"/>
+      <point x="661" y="106" type="line"/>
+      <point x="655" y="106" type="line"/>
+      <point x="152" y="714" type="line"/>
+      <point x="140" y="714" type="line"/>
+    </contour>
+  </outline>
+  <lib>
+    <dict>
+      <key>public.verticalOrigin</key>
+      <integer>930</integer>
+    </dict>
+  </lib>
+</glyph>

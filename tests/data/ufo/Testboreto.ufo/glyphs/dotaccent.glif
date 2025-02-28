@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<glyph name="dotaccent" format="2">
+  <advance width="236"/>
+  <unicode hex="02D9"/>
+  <anchor x="118" y="700" name="_top"/>
+  <anchor x="118" y="893" name="top"/>
+  <outline>
+    <component base="dotaccentcomb"/>
+  </outline>
+  <lib>
+    <dict>
+      <key>public.verticalOrigin</key>
+      <integer>930</integer>
+    </dict>
+  </lib>
+</glyph>

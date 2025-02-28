@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<glyph name="seven.tf" format="2">
+  <advance width="582"/>
+  <outline>
+    <contour>
+      <point x="67" y="640" type="line"/>
+      <point x="464" y="640" type="line"/>
+      <point x="154" y="0" type="line"/>
+      <point x="228" y="0" type="line"/>
+      <point x="508" y="680" type="line"/>
+      <point x="508" y="700" type="line"/>
+      <point x="67" y="700" type="line"/>
+    </contour>
+  </outline>
+  <lib>
+    <dict>
+      <key>public.verticalOrigin</key>
+      <integer>930</integer>
+    </dict>
+  </lib>
+</glyph>

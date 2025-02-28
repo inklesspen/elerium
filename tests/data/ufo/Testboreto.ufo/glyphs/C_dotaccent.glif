@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<glyph name="Cdotaccent" format="2">
+  <advance height="1160" width="758"/>
+  <unicode hex="010A"/>
+  <unicode hex="010B"/>
+  <anchor x="456" y="0" name="bottom"/>
+  <anchor x="462" y="893" name="top"/>
+  <outline>
+    <component base="C"/>
+    <component base="dotaccentcomb" xOffset="344"/>
+  </outline>
+  <lib>
+    <dict>
+      <key>public.verticalOrigin</key>
+      <integer>930</integer>
+    </dict>
+  </lib>
+</glyph>

@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<glyph name="Ohungarumlaut" format="2">
+  <advance height="1160" width="888"/>
+  <unicode hex="0150"/>
+  <unicode hex="0151"/>
+  <anchor x="444" y="0" name="bottom"/>
+  <anchor x="444" y="350" name="center"/>
+  <anchor x="482" y="0" name="ogonek"/>
+  <anchor x="489" y="899" name="top"/>
+  <anchor x="20" y="700" name="topleft"/>
+  <anchor x="868" y="700" name="topright"/>
+  <outline>
+    <component base="O"/>
+    <component base="hungarumlautcomb" xOffset="295" yOffset="10"/>
+  </outline>
+  <lib>
+    <dict>
+      <key>public.verticalOrigin</key>
+      <integer>930</integer>
+    </dict>
+  </lib>
+</glyph>

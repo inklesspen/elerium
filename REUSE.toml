@@ -30,4 +30,12 @@ path = [
   "pytest.ini",
   "tests/data/mti/README.md",
   "tests/data/nototools/README.md",
+  "tests/data/ufo/README.md",
+]
+
+[[annotations]]
+SPDX-FileCopyrightText = "Copyright 2022 The Aboreto Project Authors (https://github.com/domija/Aboreto)"
+SPDX-License-Identifier = "OFL-1.1-no-RFN"
+path = [
+  "tests/data/ufo/Testboreto.ufo/**",
 ]

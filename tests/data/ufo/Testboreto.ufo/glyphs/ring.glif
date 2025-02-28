@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<glyph name="ring" format="2">
+  <advance width="308"/>
+  <unicode hex="02DA"/>
+  <anchor x="154" y="700" name="_top"/>
+  <anchor x="154" y="924" name="top"/>
+  <outline>
+    <component base="ringcomb"/>
+  </outline>
+  <lib>
+    <dict>
+      <key>public.verticalOrigin</key>
+      <integer>930</integer>
+    </dict>
+  </lib>
+</glyph>

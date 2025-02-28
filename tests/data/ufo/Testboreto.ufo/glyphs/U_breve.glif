@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<glyph name="Ubreve" format="2">
+  <advance height="1160" width="798"/>
+  <unicode hex="016C"/>
+  <unicode hex="016D"/>
+  <anchor x="399" y="0" name="bottom"/>
+  <anchor x="449" y="0" name="ogonek"/>
+  <anchor x="403" y="912" name="top"/>
+  <anchor x="778" y="700" name="topright"/>
+  <outline>
+    <component base="U"/>
+    <component base="brevecomb" xOffset="204"/>
+  </outline>
+  <lib>
+    <dict>
+      <key>public.verticalOrigin</key>
+      <integer>930</integer>
+    </dict>
+  </lib>
+</glyph>

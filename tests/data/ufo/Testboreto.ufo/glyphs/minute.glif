@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<glyph name="minute" format="2">
+  <advance width="193"/>
+  <unicode hex="2032"/>
+  <outline>
+    <contour>
+      <point x="141" y="640" type="line" smooth="yes"/>
+      <point x="145" y="653"/>
+      <point x="147" y="664"/>
+      <point x="147" y="674" type="curve" smooth="yes"/>
+      <point x="147" y="697"/>
+      <point x="135" y="710"/>
+      <point x="112" y="710" type="curve" smooth="yes"/>
+      <point x="82" y="710"/>
+      <point x="66" y="688"/>
+      <point x="66" y="640" type="curve" smooth="yes"/>
+      <point x="66" y="472" type="line"/>
+      <point x="84" y="472" type="line"/>
+    </contour>
+  </outline>
+  <lib>
+    <dict>
+      <key>public.verticalOrigin</key>
+      <integer>930</integer>
+    </dict>
+  </lib>
+</glyph>

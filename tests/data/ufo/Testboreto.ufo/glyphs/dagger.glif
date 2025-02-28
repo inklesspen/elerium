@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<glyph name="dagger" format="2">
+  <advance width="472"/>
+  <unicode hex="2020"/>
+  <outline>
+    <contour>
+      <point x="227" y="-47" type="line"/>
+      <point x="245" y="-47" type="line"/>
+      <point x="270" y="409" type="line"/>
+      <point x="244" y="526" type="line"/>
+      <point x="228" y="526" type="line"/>
+      <point x="202" y="409" type="line"/>
+    </contour>
+    <contour>
+      <point x="202" y="730" type="line"/>
+      <point x="227" y="526" type="line"/>
+      <point x="245" y="526" type="line"/>
+      <point x="270" y="730" type="line"/>
+    </contour>
+    <contour>
+      <point x="239" y="518" type="line"/>
+      <point x="427" y="493" type="line"/>
+      <point x="427" y="561" type="line"/>
+      <point x="239" y="536" type="line"/>
+    </contour>
+    <contour>
+      <point x="45" y="493" type="line"/>
+      <point x="233" y="518" type="line"/>
+      <point x="233" y="536" type="line"/>
+      <point x="45" y="561" type="line"/>
+    </contour>
+  </outline>
+  <lib>
+    <dict>
+      <key>public.verticalOrigin</key>
+      <integer>930</integer>
+    </dict>
+  </lib>
+</glyph>

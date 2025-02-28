@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<glyph name="E" format="2">
+  <advance width="518"/>
+  <unicode hex="0045"/>
+  <unicode hex="0065"/>
+  <anchor x="259" y="0" name="bottom"/>
+  <anchor x="390" y="0" name="ogonek"/>
+  <anchor x="279" y="700" name="top"/>
+  <anchor x="20" y="700" name="topleft"/>
+  <outline>
+    <contour>
+      <point x="188" y="355" type="line"/>
+      <point x="198" y="355" type="line" smooth="yes"/>
+      <point x="206.532" y="355"/>
+      <point x="227.198" y="354"/>
+      <point x="260" y="352" type="curve" smooth="yes"/>
+      <point x="424" y="342" type="line"/>
+      <point x="424" y="388" type="line"/>
+      <point x="260" y="378" type="line" smooth="yes"/>
+      <point x="227.198" y="376"/>
+      <point x="206.532" y="375"/>
+      <point x="198" y="375" type="curve" smooth="yes"/>
+      <point x="188" y="375" type="line"/>
+    </contour>
+    <contour>
+      <point x="130" y="0" type="line"/>
+      <point x="198" y="0" type="line"/>
+      <point x="198" y="700" type="line"/>
+      <point x="130" y="700" type="line"/>
+    </contour>
+    <contour>
+      <point x="188" y="700" type="line"/>
+      <point x="188" y="680" type="line"/>
+      <point x="197.914" y="680" type="line" smooth="yes"/>
+      <point x="208.905" y="680"/>
+      <point x="229.6" y="678"/>
+      <point x="260" y="674" type="curve" smooth="yes"/>
+      <point x="435" y="651" type="line"/>
+      <point x="435" y="700" type="line"/>
+    </contour>
+    <contour>
+      <point x="188" y="0" type="line"/>
+      <point x="438" y="0" type="line"/>
+      <point x="438" y="49" type="line"/>
+      <point x="261" y="26" type="line" smooth="yes"/>
+      <point x="231" y="22"/>
+      <point x="209.6" y="20"/>
+      <point x="198" y="20" type="curve" smooth="yes"/>
+      <point x="188" y="20" type="line"/>
+    </contour>
+  </outline>
+  <lib>
+    <dict>
+      <key>public.verticalOrigin</key>
+      <integer>930</integer>
+    </dict>
+  </lib>
+</glyph>

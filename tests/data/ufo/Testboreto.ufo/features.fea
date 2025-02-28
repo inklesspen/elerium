@@ -1,0 +1,239 @@
+# Prefix: Languagesystems
+# automatic
+languagesystem DFLT dflt;
+languagesystem latn dflt;
+languagesystem latn AZE;
+languagesystem latn CRT;
+languagesystem latn KAZ;
+languagesystem latn TAT;
+languagesystem latn TRK;
+languagesystem latn ROM;
+languagesystem latn MOL;
+languagesystem latn CAT;
+languagesystem latn NLD;
+languagesystem latn FLE;
+feature aalt {
+    # automatic
+    feature locl;
+    feature subs;
+    feature sinf;
+    feature sups;
+    feature numr;
+    feature dnom;
+    feature frac;
+    feature ordn;
+    feature calt;
+    feature pnum;
+    feature tnum;
+} aalt;
+
+feature ccmp {
+    # automatic
+    lookup ccmp_latn_1 {
+        sub Ldot by L periodcentered.loclCAT.case;
+    } ccmp_latn_1;
+
+    script latn;
+    lookup ccmp_latn_1;
+} ccmp;
+
+feature locl {
+    lookup locl_latn_0 {
+        script latn;
+        language AZE;
+        sub i by Idotaccent;
+        language CRT;
+        sub i by Idotaccent;
+        language KAZ;
+        sub i by Idotaccent;
+        language TAT;
+        sub i by Idotaccent;
+        language TRK;
+        sub i by Idotaccent;
+    } locl_latn_0;
+
+    lookup locl_latn_1 {
+        script latn;
+        language ROM;
+        sub Scedilla by Scommaaccent;
+        sub Tcedilla by Tcommaaccent;
+        language MOL;
+        sub Scedilla by Scommaaccent;
+        sub Tcedilla by Tcommaaccent;
+    } locl_latn_1;
+
+    lookup locl_latn_2 {
+        script latn;
+        language CAT;
+        sub L' periodcentered' L by Ldot;
+    } locl_latn_2;
+
+    lookup locl_latn_3 {
+        script latn;
+        language NLD;
+        sub I J by IJ;
+        sub Iacute J by IJ_acute;
+        language FLE;
+        sub I J by IJ;
+        sub Iacute J by IJ_acute;
+    } locl_latn_3;
+
+} locl;
+
+feature subs {
+    # automatic
+    sub zero by zeroinferior;
+    sub one by oneinferior;
+    sub two by twoinferior;
+    sub three by threeinferior;
+    sub four by fourinferior;
+    sub five by fiveinferior;
+    sub six by sixinferior;
+    sub seven by seveninferior;
+    sub eight by eightinferior;
+    sub nine by nineinferior;
+} subs;
+
+feature sinf {
+    # automatic
+    sub zero by zeroinferior;
+    sub one by oneinferior;
+    sub two by twoinferior;
+    sub three by threeinferior;
+    sub four by fourinferior;
+    sub five by fiveinferior;
+    sub six by sixinferior;
+    sub seven by seveninferior;
+    sub eight by eightinferior;
+    sub nine by nineinferior;
+} sinf;
+
+feature sups {
+    # automatic
+    sub zero by zerosuperior;
+    sub one by onesuperior;
+    sub two by twosuperior;
+    sub three by threesuperior;
+    sub four by foursuperior;
+    sub five by fivesuperior;
+    sub six by sixsuperior;
+    sub seven by sevensuperior;
+    sub eight by eightsuperior;
+    sub nine by ninesuperior;
+} sups;
+
+feature numr {
+    # automatic
+    sub zero by zero.numr;
+    sub one by one.numr;
+    sub two by two.numr;
+    sub three by three.numr;
+    sub four by four.numr;
+    sub five by five.numr;
+    sub six by six.numr;
+    sub seven by seven.numr;
+    sub eight by eight.numr;
+    sub nine by nine.numr;
+} numr;
+
+feature dnom {
+    # automatic
+    sub zero by zero.dnom;
+    sub one by one.dnom;
+    sub two by two.dnom;
+    sub three by three.dnom;
+    sub four by four.dnom;
+    sub five by five.dnom;
+    sub six by six.dnom;
+    sub seven by seven.dnom;
+    sub eight by eight.dnom;
+    sub nine by nine.dnom;
+} dnom;
+
+feature frac {
+    # automatic
+    lookup FRAC {
+        sub slash by fraction;
+    } FRAC;
+
+    lookup UP {
+        sub [zero one two three four five six seven eight nine] by [zero.numr one.numr two.numr three.numr four.numr five.numr six.numr seven.numr eight.numr nine.numr];
+    } UP;
+
+    lookup DOWN {
+        sub fraction [zero.numr one.numr two.numr three.numr four.numr five.numr six.numr seven.numr eight.numr nine.numr]' by [zero.dnom one.dnom two.dnom three.dnom four.dnom five.dnom six.dnom seven.dnom eight.dnom nine.dnom];
+        sub [zero.dnom one.dnom two.dnom three.dnom four.dnom five.dnom six.dnom seven.dnom eight.dnom nine.dnom] [zero.numr one.numr two.numr three.numr four.numr five.numr six.numr seven.numr eight.numr nine.numr]' by [zero.dnom one.dnom two.dnom three.dnom four.dnom five.dnom six.dnom seven.dnom eight.dnom nine.dnom];
+    } DOWN;
+
+} frac;
+
+feature ordn {
+    # automatic
+    sub [zero one two three four five six seven eight nine] [A]' by ordfeminine;
+    sub [zero one two three four five six seven eight nine] [O]' by ordmasculine;
+} ordn;
+
+feature calt {
+    # Contextual Alternates
+    sub [hyphen endash emdash] greater by arrowright;
+    sub less [hyphen endash emdash] by arrowleft;
+    sub asciicircum [hyphen endash emdash] by arrowdown;
+    sub [hyphen endash emdash] asciicircum by arrowup;
+    sub less slash by arrowSW;
+    sub slash greater by arrowNE;
+    sub less backslash by arrowNW;
+    sub backslash greater by arrowSE;
+    sub parenleft R parenright by registered;
+    sub parenleft C parenright by copyright;
+    sub parenleft P parenright by soundcopyright;
+    sub parenleft T M parenright by trademark;
+    sub period period period by ellipsis;
+    sub hyphen hyphen by endash;
+    sub hyphen hyphen hyphen by emdash;
+    #> feature
+    #< feature
+} calt;
+
+feature pnum {
+    # automatic
+    sub zero.tf by zero;
+    sub one.tf by one;
+    sub two.tf by two;
+    sub three.tf by three;
+    sub four.tf by four;
+    sub five.tf by five;
+    sub six.tf by six;
+    sub seven.tf by seven;
+    sub eight.tf by eight;
+    sub nine.tf by nine;
+    sub numbersign.tf by numbersign;
+    sub florin.tf by florin;
+    sub cent.tf by cent;
+    sub dollar.tf by dollar;
+    sub Euro.tf by Euro;
+    sub sterling.tf by sterling;
+    sub yen.tf by yen;
+    sub turkishlira.tf by turkishlira;
+} pnum;
+
+feature tnum {
+    # automatic
+    sub zero by zero.tf;
+    sub one by one.tf;
+    sub two by two.tf;
+    sub three by three.tf;
+    sub four by four.tf;
+    sub five by five.tf;
+    sub six by six.tf;
+    sub seven by seven.tf;
+    sub eight by eight.tf;
+    sub nine by nine.tf;
+    sub numbersign by numbersign.tf;
+    sub florin by florin.tf;
+    sub cent by cent.tf;
+    sub dollar by dollar.tf;
+    sub Euro by Euro.tf;
+    sub sterling by sterling.tf;
+    sub yen by yen.tf;
+    sub turkishlira by turkishlira.tf;
+} tnum;

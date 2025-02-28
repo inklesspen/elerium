@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<glyph name="daggerdbl" format="2">
+  <advance width="472"/>
+  <unicode hex="2021"/>
+  <outline>
+    <contour>
+      <point x="270" y="347" type="line"/>
+      <point x="245" y="526" type="line"/>
+      <point x="227" y="526" type="line"/>
+      <point x="202" y="347" type="line"/>
+      <point x="227" y="168" type="line"/>
+      <point x="245" y="168" type="line"/>
+    </contour>
+    <contour>
+      <point x="202" y="730" type="line"/>
+      <point x="227" y="526" type="line"/>
+      <point x="245" y="526" type="line"/>
+      <point x="270" y="730" type="line"/>
+    </contour>
+    <contour>
+      <point x="239" y="518" type="line"/>
+      <point x="427" y="493" type="line"/>
+      <point x="427" y="561" type="line"/>
+      <point x="239" y="536" type="line"/>
+    </contour>
+    <contour>
+      <point x="45" y="493" type="line"/>
+      <point x="233" y="518" type="line"/>
+      <point x="233" y="536" type="line"/>
+      <point x="45" y="561" type="line"/>
+    </contour>
+    <contour>
+      <point x="202" y="-36" type="line"/>
+      <point x="270" y="-36" type="line"/>
+      <point x="245" y="168" type="line"/>
+      <point x="227" y="168" type="line"/>
+    </contour>
+    <contour>
+      <point x="239" y="176" type="line"/>
+      <point x="239" y="158" type="line"/>
+      <point x="427" y="108" type="line"/>
+      <point x="427" y="176" type="line"/>
+    </contour>
+    <contour>
+      <point x="45" y="176" type="line"/>
+      <point x="45" y="108" type="line"/>
+      <point x="233" y="158" type="line"/>
+      <point x="233" y="176" type="line"/>
+    </contour>
+  </outline>
+  <lib>
+    <dict>
+      <key>public.verticalOrigin</key>
+      <integer>930</integer>
+    </dict>
+  </lib>
+</glyph>

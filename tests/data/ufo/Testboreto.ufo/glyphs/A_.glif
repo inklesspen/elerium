@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<glyph name="A" format="2">
+  <advance width="658"/>
+  <unicode hex="0041"/>
+  <unicode hex="0061"/>
+  <anchor x="329" y="0" name="bottom"/>
+  <anchor x="578" y="0" name="ogonek"/>
+  <anchor x="329" y="700" name="top"/>
+  <outline>
+    <contour>
+      <point x="26" y="0" type="line"/>
+      <point x="99" y="0" type="line"/>
+      <point x="302" y="648" type="line"/>
+      <point x="308" y="648" type="line"/>
+      <point x="553" y="0" type="line"/>
+      <point x="626" y="0" type="line"/>
+      <point x="357" y="700" type="line"/>
+      <point x="295" y="700" type="line"/>
+    </contour>
+    <contour>
+      <point x="181" y="328" type="line"/>
+      <point x="469" y="328" type="line"/>
+      <point x="469" y="352" type="line"/>
+      <point x="181" y="352" type="line"/>
+    </contour>
+  </outline>
+  <lib>
+    <dict>
+      <key>public.verticalOrigin</key>
+      <integer>930</integer>
+    </dict>
+  </lib>
+</glyph>
