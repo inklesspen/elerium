@@ -7,6 +7,10 @@ dependencies = [
   "more-itertools>=10.6.0",
   "ufoLib2>=0.17.1",
   "typer>=0.15.1",
+  "webob>=1.8.9",
+  "waitress>=3.0.2",
+  "lxml>=5.3.1",
+  "ufo2ft>=3.4.2",
 ]
 description = "Improve your UFOs"
 license = "MIT"
@@ -29,6 +33,7 @@ dev = [
   "bump-my-version>=0.32.2",
   "pre-commit>=4.1.0",
   "pytest>=8.3.4",
+  "types-lxml>=2025.3.4",
 ]
 
 [project.scripts]

@@ -1,5 +1,6 @@
 # SPDX-FileCopyrightText: 2025 Rose Davidson <rose@metaclassical.com>
 # SPDX-License-Identifier: MIT
+import logging
 import pathlib
 from typing import Annotated, Optional
 
@@ -19,6 +20,8 @@ def callback():
     """
     Elerium helps you improve your UFOs!
     """
+    # TODO: make this level configurable
+    logging.basicConfig(level=logging.DEBUG)
 
 
 @app.command(no_args_is_help=True)
@@ -66,3 +69,15 @@ def mti_to_fea(
         parser.add_plist(plist, font_name)
     fea = parser.parse().asFea()
     output.write_text(fea)
+
+
+@app.command(no_args_is_help=True)
+def glyphview(
+    ufo: Annotated[pathlib.Path, typer.Argument(help="Path to the UFO for the font", exists=True, readable=True)],
+    port: Annotated[int, typer.Option(help="Serving port")] = 8000,
+):
+    from .glyphview import Viewer
+
+    viewer = Viewer(ufoLib2.Font.open(ufo))
+    typer.echo(f"Now serving on port {port}.")
+    viewer.serve(port=port)
