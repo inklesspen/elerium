@@ -1,0 +1,70 @@
+FontDame GSUB table
+
+
+script table begin
+cyrl	default		0
+grek	default		0
+latn	default		1
+latn	DEU 		2
+script table end
+
+
+feature table begin
+0	test	slashcontext
+1	test	slashcontext
+2	test	slashcontext
+
+feature table end
+
+lookup	slashcontext 	chained
+
+RightToLeft	no
+IgnoreBaseGlyphs	no
+IgnoreLigatures	no
+IgnoreMarks	no
+
+backtrackcoverage definition begin
+zero
+one
+two
+three
+four
+five
+six
+seven
+eight
+nine
+coverage definition end
+
+inputcoverage definition begin
+slash
+coverage definition end
+
+lookaheadcoverage definition begin
+zero
+one
+two
+three
+four
+five
+six
+seven
+eight
+nine
+coverage definition end
+
+coverage	 1, slashTofraction
+
+lookup end
+
+
+lookup	slashTofraction 	single
+
+RightToLeft	no
+IgnoreBaseGlyphs	no
+IgnoreLigatures	no
+IgnoreMarks	no
+
+slash	fraction
+
+lookup end

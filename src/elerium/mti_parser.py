@@ -76,15 +76,22 @@ class FeatureTableEntry:
 
     def to_ast(self, scripts_for_feature: Optional[list[ScriptTableEntry]] = None):
         block = ast.FeatureBlock(self.kind)
-        if scripts_for_feature is not None:
-            for ste in scripts_for_feature:
-                if ste.script != "DFLT":
-                    block.statements.append(ast.ScriptStatement(ste.script))
-                if ste.language != "dflt":
-                    block.statements.append(ast.LanguageStatement(ste.language, required=(ste.required_feature == self.feature_id)))
+        lookup_stmts = []
         if self.lookups:
             for lookup_id in self.lookups:
-                block.statements.append(ast.LookupReferenceStatement(ast.LookupBlock(lookup_id)))
+                lookup_stmts.append(ast.LookupReferenceStatement(ast.LookupBlock(lookup_id)))
+        current_script = "DFLT"
+        current_language = "dflt"
+        if scripts_for_feature is not None:
+            for ste in scripts_for_feature:
+                if ste.script != current_script:
+                    current_script = ste.script
+                    current_language = "dflt"
+                    block.statements.append(ast.ScriptStatement(ste.script))
+                if ste.language != current_language:
+                    current_language = ste.language
+                    block.statements.append(ast.LanguageStatement(ste.language, required=(ste.required_feature == self.feature_id)))
+                block.statements.extend(lookup_stmts)
         return block
 
 
@@ -149,6 +156,39 @@ def sorted_lookups(*to_sort: Lookup):
     return slookups
 
 
+def _script_feature_to_ast_helper(
+    ff: FeatureFile,
+    script_entries: dict[tuple[str, str], list[ScriptTableEntry]],
+    scripts_for_features: dict[str, list[ScriptTableEntry]],
+):
+    for ste in ff.script_table:
+        scriptkey = (ste.script, ste.language)
+        new_ste = ScriptTableEntry(script=ste.script, language=ste.language)
+        # The lookups have already been renamed by the parser, but the features have not.
+        new_ste.features = [f"{ff.table_tag}_{feature_id}" for feature_id in ste.features]
+        if ste.required_feature is not None:
+            new_ste.required_feature = f"{ff.table_tag}_{ste.required_feature}"
+            scripts_for_features.setdefault(new_ste.required_feature, [])
+            if scriptkey not in scripts_for_features[new_ste.required_feature]:
+                scripts_for_features[new_ste.required_feature].append(new_ste)
+        for feature_id in new_ste.features:
+            scripts_for_features.setdefault(feature_id, [])
+            if scriptkey not in scripts_for_features[feature_id]:
+                scripts_for_features[feature_id].append(new_ste)
+        script_entries.setdefault(scriptkey, []).append(new_ste)
+
+
+def _feature_to_ast_helper(
+    ff: FeatureFile,
+    scripts_for_features: dict[str, list[ScriptTableEntry]],
+):
+    statements: list[ast.FeatureBlock] = []
+    for fte in ff.feature_table:
+        fte.feature_id = f"{ff.table_tag}_{fte.feature_id}"
+        statements.append(fte.to_ast(scripts_for_features.get(fte.feature_id)))
+    return statements
+
+
 def to_ast(*files: FeatureFile):
     gdefs = [ff for ff in files if ff.table_tag == "GDEF"]
     not_gdefs = [ff for ff in files if ff.table_tag != "GDEF"]
@@ -174,20 +214,8 @@ def to_ast(*files: FeatureFile):
     script_entries: dict[tuple[str, str], list[ScriptTableEntry]] = {}
     scripts_for_features: dict[str, list[ScriptTableEntry]] = {}
     for ff in not_gdefs:
-        for ste in ff.script_table:
-            scriptkey = (ste.script, ste.language)
-            new_ste = ScriptTableEntry(script=ste.script, language=ste.language)
-            new_ste.features = [f"{ff.table_tag}_{feature_id}" for feature_id in ste.features]
-            if ste.required_feature is not None:
-                new_ste.required_feature = f"{ff.table_tag}_{ste.required_feature}"
-                scripts_for_features.setdefault(new_ste.required_feature, [])
-                if scriptkey not in scripts_for_features[new_ste.required_feature]:
-                    scripts_for_features[new_ste.required_feature].append(new_ste)
-            for feature_id in new_ste.features:
-                scripts_for_features.setdefault(feature_id, [])
-                if scriptkey not in scripts_for_features[feature_id]:
-                    scripts_for_features[feature_id].append(new_ste)
-            script_entries.setdefault(scriptkey, []).append(new_ste)
+        _script_feature_to_ast_helper(ff, script_entries, scripts_for_features)
+
     if ("DFLT", "dflt") in script_entries:
         root.statements.append(ast.LanguageSystemStatement(script="DFLT", language="dflt"))
     other_script_langs = []
@@ -230,9 +258,7 @@ def to_ast(*files: FeatureFile):
         root.statements.extend(lookup.to_ast(glyph_definitions) for lookup in sorted_lookups(*ff.lookups))
 
     for ff in not_gdefs:
-        for fte in ff.feature_table:
-            fte.feature_id = f"{ff.table_tag}_{fte.feature_id}"
-            root.statements.append(fte.to_ast(scripts_for_features.get(fte.feature_id)))
+        root.statements.extend(_feature_to_ast_helper(ff, scripts_for_features))
 
     return root
 

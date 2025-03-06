@@ -5,7 +5,7 @@ import pathlib
 import fontTools.feaLib.ast as ast
 import pytest
 
-from elerium.mti_parser import FeatureSyntaxWarning, GsubParser, Lookup, LookupFlag
+from elerium.mti_parser import FeatureSyntaxWarning, GsubParser, Lookup, LookupFlag, Parser
 
 DATA_BASE_PATH = pathlib.Path(__file__).parent / "data"
 
@@ -494,3 +494,60 @@ def test_out_of_order_context_lookups():
     actual = feaify(parser.lookups[0])
     expected = feaify(expected)
     assert actual == expected
+
+
+CYRL_GREK_FEATURE = """\
+feature test {
+    script cyrl;
+    lookup GSUB_slashcontext;
+    script grek;
+    lookup GSUB_slashcontext;
+} test;
+"""
+
+LATN_FEATURE = """\
+feature test {
+    script latn;
+    lookup GSUB_slashcontext;
+} test;
+"""
+
+LATN_DEU_FEATURE = """\
+feature test {
+    script latn;
+    language DEU;
+    lookup GSUB_slashcontext;
+} test;
+"""
+
+# This is technically possible, and probably would be better, but is not currently produced.
+COMBINED_FEATURE = """\
+feature test {
+    script cyrl;
+    lookup GSUB_slashcontext;
+    script grek;
+    lookup GSUB_slashcontext;
+    script latn;
+    lookup GSUB_slashcontext;
+    language DEU;
+} test;
+"""
+
+
+def test_multi_script_lookups():
+    # In this example, a lookup is used by multiple scripts.
+    # cyrl and grek both use feature 0.
+    # latn with the default language uses feature 1.
+    # latin with the DEU (German) language uses feature 2.
+    # But all three features reference the same lookup.
+    # The parser should produce one feature with both cyrl and grek, one for latn, and one for latn DEU.
+    parser = Parser()
+    parser.add_GDEF(DATA_BASE_PATH / "plist" / "Example GDEF.txt")
+    parser.add_GSUB(DATA_BASE_PATH / "multiscriptlookup.txt")
+
+    fea_ast = parser.parse()
+    assert isinstance(fea_ast, ast.FeatureFile)
+
+    actual_feature_defs = [stmt.asFea() for stmt in fea_ast.statements if isinstance(stmt, ast.FeatureBlock)]
+    expected_feature_defs = [CYRL_GREK_FEATURE, LATN_FEATURE, LATN_DEU_FEATURE]
+    assert actual_feature_defs == expected_feature_defs
