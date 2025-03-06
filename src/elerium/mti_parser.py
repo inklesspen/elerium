@@ -343,12 +343,16 @@ class LookupAndFeatureParser:
                 while len(line) < 4:
                     line.append("")
                 scriptTag, langSysTag, defaultFeature, features = line
+                if len(scriptTag) > 4:
+                    raise ParseError(f"Script tag {scriptTag} is too long")
+                if len(scriptTag) < 4:
+                    scriptTag = f"{scriptTag: <4}"
                 if langSysTag == "default":
                     langSysTag = "dflt"
                 if len(langSysTag) > 4:
                     raise ParseError(f"Language tag {langSysTag} is too long")
                 if len(langSysTag) < 4:
-                    langSysTag = f"{langSysTag: >4}"
+                    langSysTag = f"{langSysTag: <4}"
                 logger.debug("Adding script %s language-system %s", scriptTag, langSysTag)
 
                 entry = ScriptTableEntry(script=scriptTag, language=langSysTag)
