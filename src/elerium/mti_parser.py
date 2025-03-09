@@ -20,6 +20,8 @@ from fontTools import agl
 from fontTools.mtiLib import intSplitComma as int_split_comma
 from fontTools.mtiLib import stripSplitComma as strip_split_comma
 
+from .warnings import FeatureSyntaxWarning
+
 if typing.TYPE_CHECKING:
     from typing import Optional
 
@@ -34,10 +36,6 @@ class MtiParserError(Exception):
 
 
 class ParseError(MtiParserError):
-    pass
-
-
-class FeatureSyntaxWarning(UserWarning):
     pass
 
 

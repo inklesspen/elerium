@@ -5,7 +5,8 @@ import pathlib
 import fontTools.feaLib.ast as ast
 import pytest
 
-from elerium.mti_parser import FeatureSyntaxWarning, GsubParser, Lookup, LookupFlag, Parser
+from elerium.mti_parser import GsubParser, Lookup, LookupFlag, Parser
+from elerium.warnings import FeatureSyntaxWarning
 
 DATA_BASE_PATH = pathlib.Path(__file__).parent / "data"
 
