@@ -1,9 +1,13 @@
 # SPDX-FileCopyrightText: 2025 Rose Davidson <rose@metaclassical.com>
 # SPDX-License-Identifier: MIT
+import io
+import pathlib
 import warnings
 
 from fontTools import agl
+from fontTools.feaLib.parser import Parser as FeaParser
 from fontTools.misc.transform import Transform
+from fontTools.ufoLib import FEATURES_FILENAME
 from ufoLib2.objects import Font, Point
 from ufoLib2.objects.misc import BoundingBox
 
@@ -59,3 +63,15 @@ def find_glyph_codepoints(ufo: Font, glyphname: str, strict: bool = True):
             raise ValueError(f"Glyph {glyphname!r} not in font!")
         warnings.warn(f"Asked to find codepoints for {glyphname!r}, but this glyph is not in the font.", GlyphWarning, stacklevel=2)
     return _find_glyph_codepoints(ufo, glyphname)
+
+
+def parse_ufo_features(ufo: Font):
+    if not ufo.features:
+        return None
+    glyphs = list(ufo.keys())
+    if ufo.path:
+        with pathlib.Path(ufo.path).joinpath(FEATURES_FILENAME).open("r") as fea_file:
+            parser = FeaParser(fea_file, glyphs)
+            return parser.parse()
+    parser = FeaParser(io.StringIO(ufo.features.text), glyphs, followIncludes=False)
+    return parser.parse()
